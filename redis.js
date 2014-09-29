@@ -1,5 +1,4 @@
 'use strict';
-
-module.exports = function(redis){
-	require('cofy')(redis.RedisClient.prototype);
+module.exports = function(){
+	require('cofy')(require('redis').RedisClient.prototype);
 };

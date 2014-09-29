@@ -1,9 +1,6 @@
 'use strict';
-
-
 var cofy = require('cofy');
-
-exports.co_fs = function (){
+function co_fs(){
 	var fs = require('fs');
 	var methods = [
 	'readFile','close','open','read','write',
@@ -16,19 +13,16 @@ exports.co_fs = function (){
 	];
 	fs.co_exists = cofy(fs.exists ,false ,fs);
 	return cofy(fs,true,fs,methods);
-};
-
-exports.co_child_process = function(){
+}
+function co_child_process(){
 	var cp = require('child_process');
 	var methods = ['exec','execFile'];
 	return cofy(cp,true,cp,methods);
-};
-
-exports.co_dns = function(){
+}
+function co_dns(){
 	return cofy(require('dns'));
-};
-
-exports.co_http = function(){
+}
+function co_http(){
 	var http = require('http');
 	var httpMethods = ['request', 'get','setTimeout'];
 	var httpServerMethods = ['listen', 'close','setTimeout'];
@@ -41,17 +35,20 @@ exports.co_http = function(){
 	cofy(http.ClientRequest.prototype,true,null,httpServerReqMethods);
 	cofy(http.IncomingMessage.prototype,true,null,httpServerMsgMethods);
 	return http;
-};
-
-exports.co_https = function(){
+}
+function co_https(){
 	var https = require('https');
 	var httpsMethods = ['request', 'get'];
 	cofy(https,false,https,httpsMethods);
-};
-exports.co_zlib = function(){
+}
+function co_zlib(){
 	var zlib = require('zlib');
 	var methods = ['deflate', 'deflateRaw','gzip','gunzip','inflate','inflateRaw','unzip'];
 	cofy(zlib,true,zlib,methods);
+}
+module.exports = function(){
+	var methods = [co_fs,co_child_process , co_dns,co_http,co_https,co_zlib];
+	for(var i = 0 ; i < methods.length;i++){
+		methods[i]();
+	}
 };
-
-

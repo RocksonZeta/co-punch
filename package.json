@@ -1,39 +1,42 @@
 {
-	"name": "co-punch",
-	"version": "0.0.1",
-	"description": "Punch old libraries!",
-	"main": "index.js",
-	"scripts": {
-		"test": "mocha --recursive -R spec --require should --harmony test/ --bail",
-		"test-cov": "node --harmony node_modules/istanbul-harmony/lib/cli.js cover ./node_modules/mocha/bin/_mocha  -- -u exports --require should  --recursive test/ --bail",
-		"test-travis": "node --harmony node_modules/istanbul-harmony/lib/cli.js cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -u exports --require should  --recursive test/ --bail"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/RocksonZeta/new-utils.git"
-	},
-	"keywords": [
-		"co",
-		"utils",
-		"co-utils"
-	],
-	"license": "MIT",
-	"dependencies":{
-		"cofy":"^1.0.0"
-	},
-	"devDependencies": {
-		"mysql": "*",
-		"redis": "*",
-		"mongodb": "*",
-		"amqp": "*",
-		"co": "*",
-		"should": "*",
-		"mocha": "*",
-		"coveralls": "*",
-		"mocha-lcov-reporter": "*",
-		"istanbul-harmony": "*"
-	},
-	"engines": {
-		"node": ">= 0.11.9"
-	}
+  "name": "co-punch",
+  "version": "0.0.1",
+  "description": "Punch old libraries!",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --recursive -R spec --require should --harmony test/ --bail",
+    "test-cov": "node --harmony node_modules/istanbul-harmony/lib/cli.js cover ./node_modules/mocha/bin/_mocha  -- -u exports --require should  --recursive test/ --bail",
+    "test-travis": "node --harmony node_modules/istanbul-harmony/lib/cli.js cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -u exports --require should  --recursive test/ --bail"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RocksonZeta/co-punch.git"
+  },
+  "keywords": [
+    "co",
+    "utils",
+    "co-utils"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "cofy": "^1.0.0",
+    "request": "^2.44.0"
+  },
+  "devDependencies": {
+    "mysql": "^2.5.1",
+    "oracle": "^0.3.7",
+    "redis": "^0.12.1",
+    "memcache": "^0.3.0",
+    "mongodb": "^1.4.17",
+    "amqp": "^0.2.0",
+    "co": "^3.1.0",
+    "should": "*",
+    "mocha": "*",
+    "coveralls": "*",
+    "mocha-lcov-reporter": "*",
+    "istanbul-harmony": "*"
+  },
+  "engines": {
+    "node": ">= 0.11.9"
+  }
 }
