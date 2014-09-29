@@ -13,7 +13,7 @@ After punch, we eliminate cumbersome callbacks.
 
 ##Installation
 ```
-$ npm install cofy
+$ npm install co-punch
 ```
 
 ##Examples:
