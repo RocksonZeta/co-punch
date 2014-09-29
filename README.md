@@ -62,7 +62,9 @@ var punch = require('co-punch')
 ```
 ### punch(modules)
 - `module` `{string|array|var args}` - the name of the modules.After punch,old callback function can be call like this style `yield co_oldFn(args)`.
+
 Now `co-punch` supports `amqp`,`memcache`,`mongodb`,`mysql`,`nodejs`,`redis`,`request`.
+
 `fn(args,function(e,r){}) -> var r= yield fn(args);`//if e not null , this will throw an error.
 
 try it now!
