@@ -56,7 +56,7 @@ co(function*(){//or in koa
 })();
 ```
 
-API:
+##API:
 ```
 var punch = require('co-punch')
 ```
