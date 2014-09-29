@@ -24,7 +24,6 @@
   },
   "devDependencies": {
     "mysql": "^2.5.1",
-    "oracle": "^0.3.7",
     "redis": "^0.12.1",
     "memcache": "^0.3.0",
     "mongodb": "^1.4.17",
