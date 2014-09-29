@@ -1,6 +1,6 @@
 {
   "name": "co-punch",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Punch old libraries!",
   "main": "index.js",
   "scripts": {
@@ -19,11 +19,11 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "cofy": "^1.0.0",
-    "request": "^2.44.0"
+    "cofy": "^1.0.0"
   },
   "devDependencies": {
     "mysql": "^2.5.1",
+    "request": "^2.44.0",
     "redis": "^0.12.1",
     "memcache": "^0.3.0",
     "mongodb": "^1.4.17",
