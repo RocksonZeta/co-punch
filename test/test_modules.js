@@ -10,7 +10,7 @@ describe("punch" , function(){
 		co(function*(){
 			punch('nodejs');
 			var fs = require('fs');
-			(yield fs.co_exists(__dirname)).should.be.ok;
+			(yield fs.$exists(__dirname)).should.be.ok;
 			done();
 		})();
 	});
@@ -24,36 +24,36 @@ describe("punch" , function(){
 	it("#punch redis" , function(done){
 		co(function*(){
 			punch('redis');
-			require('redis').RedisClient.prototype.co_get.should.be.ok;
+			require('redis').RedisClient.prototype.$get.should.be.ok;
 			done();
 		})();
 	});
 	it("#punch memcache" , function(done){
 		co(function*(){
 			punch('memcache');
-			require('memcache').Client.prototype.co_get.should.be.ok;
+			require('memcache').Client.prototype.$get.should.be.ok;
 			done();
 		})();
 	});
 	it("#punch mongodb" , function(done){
 		co(function*(){
 			punch('mongodb');
-			require('mongodb').MongoClient.prototype.co_connect.should.be.ok;
+			require('mongodb').MongoClient.prototype.$connect.should.be.ok;
 			done();
 		})();
 	});
 	it("#punch amqp" , function(done){
 		co(function*(){
 			punch('amqp');
-			require('amqp').Connection.prototype.co_connect.should.be.ok;
+			require('amqp').Connection.prototype.$connect.should.be.ok;
 			done();
 		})();
 	});
 	it("#punch request" , function(done){
 		co(function*(){
 			punch('request');
-			require('request').co_request.should.be.ok;
-			require('request').co_get.should.be.ok;
+			require('request').$request.should.be.ok;
+			require('request').$get.should.be.ok;
 			done();
 		})();
 	});

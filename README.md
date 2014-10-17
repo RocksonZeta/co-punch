@@ -7,13 +7,14 @@ co-punch
 
 Punch old libraries!
 
-##NOTE:
+##NOTE: yield function prefix has changed to '$'.
+
 It should work within co or koa.they work well in node-0.11.* or gnode.
 After punch, we eliminate cumbersome callbacks.
 
 ##Installation
 ```
-$ npm install co-punch
+$ npm install co-punch --save
 ```
 
 ##Examples:
@@ -38,20 +39,27 @@ var mysqlClient = mysql.createConnection({
 });
 var redisClient = redis.createClient(6379,'localhost');
 
-//callback function must use yield co_*;
+//callback function must use yield $*;
 co(function*(){//or in koa
-	var file = yield fs.co_readFile('package.json','utf8');
-	yield redisClient.co_set('file' , file);
-	assert.equal(file,yield redisClient.co_get('file'));
-	var users = (yield mysqlClient.co_query("select * from user"))[0];
+	//read file
+	var file = yield fs.$readFile('package.json','utf8');
+
+	//redis operations
+	yield redisClient.$set('file' , file);
+	assert.equal(file,yield redisClient.$get('file'));
+	var users = (yield mysqlClient.$query("select * from user"))[0];
 	console.log(users);
-	var db = yield MongoClient.co_connect('mongodb://localhost:27017/test');
+	
+	//mongo operations
+	var db = yield MongoClient.$connect('mongodb://localhost:27017/test');
 	var collection = db.collection('test_users');
-	var pUser = yield collection.co_insert({name:"tom",age:10});
-	var test_users = yield collection.find({name:"tom"}).sort('name').limit(1).co_toArray();
+	var pUser = yield collection.$insert({name:"tom",age:10});
+	var test_users = yield collection.find({name:"tom"}).sort('name').limit(1).$toArray();
 	console.log(pUser,test_users);
-	var html = (yield request.co_request({url:"http://www.google.com"}))[1];
-	var getHtml = (yield request.co_get("http://www.google.com"))[1];
+
+	//request an url
+	var html = (yield request.$request({url:"http://www.google.com"}))[1];
+	var getHtml = (yield request.$get("http://www.google.com"))[1];
 	console.log(html ,getHtml);
 })();
 ```
@@ -61,7 +69,7 @@ co(function*(){//or in koa
 var punch = require('co-punch')
 ```
 ### punch(modules)
-- `module` `{string|array|var args}` - the name of the modules.After punch,old callback function can be call like this style `yield co_oldFn(args)`.
+- `module` `{string|array|var args}` - the name of the modules.After punch,old callback function can be call like this style `yield $oldFn(args)`.
 
 Now `co-punch` supports `amqp`,`memcache`,`mongodb`,`mysql`,`nodejs`,`redis`,`request`.
 #### After punch:

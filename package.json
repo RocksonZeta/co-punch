@@ -1,10 +1,10 @@
 {
   "name": "co-punch",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "Punch old libraries!",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --recursive -R spec --require should --harmony test/ --bail",
+    "test": "mocha --recursive -R spec --require should --require gnode --harmony test/ --bail",
     "test-cov": "node --harmony node_modules/istanbul-harmony/lib/cli.js cover ./node_modules/mocha/bin/_mocha  -- -u exports --require should  --recursive test/ --bail",
     "test-travis": "node --harmony node_modules/istanbul-harmony/lib/cli.js cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -u exports --require should  --recursive test/ --bail"
   },
@@ -19,21 +19,22 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "cofy": "^1.0.0"
+    "cofy": "^2.0.0"
   },
   "devDependencies": {
-    "mysql": "^2.5.1",
-    "request": "^2.44.0",
-    "redis": "^0.12.1",
-    "memcache": "^0.3.0",
-    "mongodb": "^1.4.17",
     "amqp": "^0.2.0",
     "co": "^3.1.0",
-    "should": "*",
-    "mocha": "*",
     "coveralls": "*",
+    "gnode": "^0.1.0",
+    "istanbul-harmony": "*",
+    "memcache": "^0.3.0",
+    "mocha": "*",
     "mocha-lcov-reporter": "*",
-    "istanbul-harmony": "*"
+    "mongodb": "^1.4.17",
+    "mysql": "^2.5.1",
+    "redis": "^0.12.1",
+    "request": "^2.44.0",
+    "should": "*"
   },
   "engines": {
     "node": ">= 0.11.9"

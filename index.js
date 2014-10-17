@@ -17,6 +17,6 @@ module.exports = function(names){
 			return;
 		}
 		punchedHistory[names] = 1;
-		return require('./'+names)();
+		return require('./lib/'+names)();
 	}
 };
