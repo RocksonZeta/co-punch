@@ -109,7 +109,7 @@ var punch = require('co-punch')
 
 Now `co-punch` supports `amqp`,`memcache`,`mongodb`,`mysql`,`nodejs`,`redis`,`request`.
 #### After punch:
-`fn(args,function(e,r){}) -> var r= yield fn(args);`//if e not null , this will throw an error.
+`obj.fn(args,function(e,r){}) -> var r= yield obj.$fn(args);`//if e not null , this will throw an error.
 
 try it now!
 
