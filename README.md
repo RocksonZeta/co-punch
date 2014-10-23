@@ -31,7 +31,7 @@ var request = require('request');
 var assert = require('assert');
 
 var MongoClient = mongodb.MongoClient;
-var mysqlClient = mysql.createPool({
+var pool = mysql.createPool({
 	host     : 'localhost',
 	user     : 'root',
 	password : '123456',
@@ -61,11 +61,11 @@ co(function*(){//or in koa
 
 	//mysql
 	//query with full return [[result] , [properties]];
-	var users = (yield mysqlClient.$query("select * from user"))[0];
+	var users = (yield pool.$query("select * from user"))[0];
 	//user $q to get results only
-	var apps = yield mysqlClient.$q("select * from apps where uid=:uid" , {uid:1});
+	var apps = yield pool.$q("select * from apps where uid=:uid" , {uid:1});
 	//user $q1 to get first item in results.
-	var count = yield mysqlClient.$q1("select count(*) as count from user where name=:name and pwd=:pwd" , {name:'name',pwd:'111'}));
+	var count = yield pool.$q1("select count(*) as count from user where name=:name and pwd=:pwd" , {name:'name',pwd:'111'}));
 	console.log(users);
 	//multi operations
 	var con ;
