@@ -31,7 +31,7 @@ var request = require('request');
 var assert = require('assert');
 
 var MongoClient = mongodb.MongoClient;
-var mysqlClient = mysql.createConnection({
+var mysqlClient = mysql.createPool({
 	host     : 'localhost',
 	user     : 'root',
 	password : '123456',
